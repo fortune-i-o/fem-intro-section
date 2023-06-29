@@ -1,0 +1,30 @@
+.attribution {
+  color: var(--clr-neutral-300);
+  font-size: clamp(0.65rem, 0.84rem + 0.1vw, 1.5rem);
+  line-height: 1.5;
+  margin: var(--spacer-400) auto var(--spacer-500);
+  text-align: center;
+
+  a {
+    border-radius: 0.3125rem;
+    font-size: inherit;
+    font-weight: var(--fw-bold);
+    outline-offset: 0.1875rem;
+    position: relative;
+
+    &::after {
+      content: "";
+      background-color: var(--clr-primary);
+      position: absolute;
+      inset-inline-start: 0;
+      inset-block-end: -0.125rem;
+      height: 0.1875rem;
+      width: 0%;
+      transition: var(--transition);
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,212 @@
+@use "../util/" as *;
+
+.header {
+  padding-block: var(--spacer-400);
+
+  .container {
+    --container-max-width: 70em;
+    @include flex(space-between, center);
+    gap: var(--gap);
+
+    @include breakpoint-down(small) {
+      --container-max-width: 40em;
+    }
+  }
+
+  &__nav-toggle {
+    z-index: 10;
+
+    &[aria-expanded="true"] {
+      position: fixed;
+      inset-inline-end: var(--spacer-400);
+    }
+
+    @include breakpoint-up(medium) {
+      display: none;
+    }
+
+    .line {
+      transition: var(--transition);
+    }
+
+    &[aria-expanded="true"] .line-1 {
+      transform: translate(0, -5px) rotate(45deg);
+      transform-origin: top left;
+    }
+
+    &[aria-expanded="true"] .line-2 {
+      opacity: 0;
+    }
+
+    &[aria-expanded="true"] .line-3 {
+      transform: translate(0, 0px) rotate(-45deg);
+      transform-origin: bottom left;
+    }
+  }
+
+  &__nav,
+  &__links {
+    @include flex(space-between, center);
+  }
+
+  &__nav {
+    margin-inline-start: auto;
+    transition: all var(--transition);
+    width: 90%;
+  }
+
+  &__links {
+    --gap: 2rem;
+    gap: var(--gap);
+    @include breakpoint-up(large) {
+      --gap: 3rem;
+    }
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__link {
+    --gap: 0.5rem;
+    @include flex($align: center);
+    flex-flow: row nowrap;
+    gap: var(--gap);
+
+    &--dropdown {
+      &-icon {
+        transform: rotate(180deg);
+      }
+
+      &[aria-expanded="true"] {
+        color: var(--clr-primary);
+      }
+
+      &[aria-expanded="true"] &-icon {
+        transform: rotate(0deg);
+      }
+
+      &[aria-expanded="true"] + .header__dropdown-menu {
+        height: min-content;
+        padding-block: var(--spacer-100);
+
+        @include breakpoint-up(medium) {
+          padding: var(--spacer-400) var(--spacer-500);
+
+          @media (prefers-color-scheme: dark) {
+            border: 1px solid var(--clr-neutral-200);
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__dropdown {
+    &-menu {
+      height: 0;
+      overflow: hidden;
+    }
+
+    &-link {
+      --gap: 1rem;
+      display: inline-grid;
+      grid-template-columns: 1rem 1fr;
+      justify-content: flex-start;
+      gap: var(--gap);
+      padding-block: var(--spacer-200);
+    }
+
+    &-menu--block &-link {
+      display: block;
+    }
+
+    @include breakpoint-up(medium) {
+      &-menu {
+        background-color: var(--clr-neutral-100);
+        border-radius: 0.625rem;
+        box-shadow: 0rem 0.125rem 1.25rem hsl(0deg 0% 75%);
+        inset-block-start: 2.5rem;
+        inset-inline-end: 0;
+        position: absolute;
+      }
+
+      &-item {
+        width: max-content;
+      }
+    }
+  }
+
+  @include breakpoint-up(medium) {
+    &__buttons {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  @include breakpoint-down(small) {
+    &__nav,
+    &__links {
+      flex-flow: column nowrap;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+
+    &__nav {
+      background-color: var(--clr-neutral-100);
+      padding: var(--spacer-700) var(--spacer-400);
+      position: fixed;
+      inset: 0 0 auto auto;
+      height: 100dvh;
+      overflow-y: auto;
+      transform: translateX(120%);
+      width: min(100% - 38%, 18.75rem);
+      z-index: 8;
+
+      &.open {
+        transform: translateX(0);
+      }
+
+      a {
+        padding-block: var(--spacer-300);
+        width: 100%;
+      }
+    }
+
+    &__links {
+      gap: 0;
+
+      li {
+        width: 100%;
+      }
+    }
+
+    &__dropdown-menu {
+      padding-inline-start: var(--spacer-400);
+    }
+
+    &__buttons {
+      margin-block-start: var(--spacer-400);
+      width: 100%;
+
+      .btn {
+        display: block;
+      }
+    }
+  }
+}
+
+@include breakpoint-down(small) {
+  .overlay {
+    transition: all var(--transition);
+  }
+
+  .overlay.visible {
+    background: hsl(0deg 0% 6% / 40%);
+    inset: 0;
+    min-height: 100dvh;
+    overflow: hidden;
+    pointer-events: none;
+    position: fixed;
+  }
+}
