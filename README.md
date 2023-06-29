@@ -84,7 +84,7 @@ Here are some valuable resources that I found helpful during the development of 
 
 - [MDN: prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) - The MDN documentation on prefers-color-scheme­ was instrumental in implementing the color scheme to allow the user's browser to load their preferred theme.
 
-- [MDN: transform-origin](https://­developer.mozilla.org­/en-US/docs/Web/CSS/­transform-origin) - The MDN documentation on transform-origin helped me precisely set the origin of the menu SVG icon, resulting in the desired visual effect.
+- [MDN: transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin) - The MDN documentation on transform-origin helped me precisely set the origin of the menu SVG icon, resulting in the desired visual effect.
 
 These resources played a vital role in enhancing my understanding and enabling the successful implementation of key features in this project.
 
