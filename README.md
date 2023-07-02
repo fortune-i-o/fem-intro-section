@@ -39,13 +39,7 @@ Here are some additional features that have been implemented in this project:
 
 ### Links
 
-<!--
-  ┌───────────────────────────────────────────────────────────────────┐
-  │                   Update with the correct links                   │
-  └───────────────────────────────────────────────────────────────────┘
- -->
-
-- **Solution:** [Add solution URL here](https://your-solution-url.com)
+- **Solution:** [frontendmentor.io/solutions/intro-section-with-dropdown-navigation--BteH6k1rS](https://www.frontendmentor.io/solutions/intro-section-with-dropdown-navigation--BteH6k1rS)
 - **Live Site:** [fem-intro-section.pages.dev](https://fem-intro-section.pages.dev/)
 
 ## My process
