@@ -55,6 +55,11 @@ navToggle.addEventListener("click", () => {
   navToggle.setAttribute("aria-expanded", !isExpanded);
   navBar.classList.toggle("open");
   overlay.classList.toggle("visible");
+  if (isExpanded) {
+    document.body.style.overflow = "auto"; // Enable body scroll
+  } else {
+    document.body.style.overflow = "hidden"; // Disable body scroll
+  }
 });
 
 // Adds overlay below navigation menu
