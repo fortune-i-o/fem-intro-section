@@ -479,6 +479,7 @@ svg {
   line-height: 1.5;
   margin: var(--spacer-400) auto var(--spacer-500);
   text-align: center;
+  width: 80%;
 }
 .attribution a {
   border-radius: 0.3125rem;
